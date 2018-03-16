@@ -78,7 +78,6 @@ class qSimpleSpriteTile(qTile):
     sprite = None
     def __init__(self, sprite):
         self.sprite = sprite
-        self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
 
     def pos(self):
         return qVec2(self.cords) * self.tileSize
@@ -90,9 +89,9 @@ class qSimpleSpriteTile(qTile):
 
     def Render(self, screen):
         pos = self.getPos()
-        #screen.rect(self.color, (pos[0], pos[1], self.sprite.width, self.sprite.height))
         if self.sprite:
             self.sprite.render(screen, self.getPos())
+
 # *** End Sprite Data ***
 
 class qTileLevelFileReader():

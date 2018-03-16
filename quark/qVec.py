@@ -1,6 +1,8 @@
 import numpy as np
 
 class qVec():
+    a = 0
+
     def __init__(self, *c):
         self.set(*c)
 
@@ -21,7 +23,10 @@ class qVec():
         return np.linalg.norm(self.a)
 
     def normalize(self):
-        return self / self.norm()
+        x = self.dot(self)
+        if x != 0:
+            return self / np.sqrt(x)
+        return self
 
     def asTuple(self):
         return tuple(self.a)
@@ -85,3 +90,9 @@ class qVec2(qVec):
         self.set(*c)
         if len(self.a) == 0: self.set(0,0)
         if len(self.a) == 1: self.set(self.a, self.a)
+
+
+vec = qVec(1,2)
+
+vec.normalize()
+qVec.normalize(vec)

@@ -13,6 +13,9 @@ sys.path.insert(0, os.path.abspath('quark/tile_grid'))
 from quark import qApplication
 from qTileLevel import qTileLevelFileReader
 
+from player import Player
+from qSprite import qSpriteSheetHandeler
+
 class GameApp(qApplication):
     def OnInit(self):
         levelReader = qTileLevelFileReader()
@@ -20,6 +23,10 @@ class GameApp(qApplication):
         level.pos = (self.screen.size() - level.size + 48) / 2
         print self.screen.size()
         self.add(level)
+
+        ss = qSpriteSheetHandeler().loadGridSpriteSheet("terrain_1.png", 9, 15)
+        player = Player(ss[3 * 9])
+        self.add(player)
 
     def Update(self):
         pass
