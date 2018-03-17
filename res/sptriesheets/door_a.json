@@ -1,0 +1,26 @@
+{
+    "file":"wood_door.png",
+    "grid":[3,4],
+    "Sprites":[{
+        "symbol":"open",
+        "value":[0,3]
+    },{
+        "symbol":"close",
+        "value":[0,0]
+    }],
+    "Animations":[{
+        "symbol":"aOpen",
+        "value":{
+                "duration": 5,
+                "frames":[[0,0],[0,1],[0,2],[0,3]],
+                "target":"open"
+            }
+        },{
+        "symbol":"aClose",
+        "value":{
+                "duration": 5,
+                "frames":[[0,3],[0,2],[0,1],[0,0]],
+                "target":"closed"
+        }
+    }]
+}

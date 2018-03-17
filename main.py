@@ -7,18 +7,14 @@ if __name__ == "__main__":
     elif sys.argv.__contains__('-macos'):
        sys.path.insert(0, os.path.abspath('../site-packages/mac os'));
 
-sys.path.insert(0, os.path.abspath('quark'))
-sys.path.insert(0, os.path.abspath('quark/tile_grid'))
-
 from quark import qApplication
-from qTileLevel import qTileLevelFileReader
+from quark.tile_grid import qTileLevelFileReader
 
 class GameApp(qApplication):
     def OnInit(self):
         levelReader = qTileLevelFileReader()
-        level = levelReader.readFile('res/level.json')
+        level = levelReader.readFile('level.json')
         level.pos = (self.screen.size() - level.size + 48) / 2
-        print self.screen.size()
         self.add(level)
 
     def Update(self):
